@@ -26,7 +26,10 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        _currentLanguage = @"zh_Hans";
+        _currentLanguage = [[NSUserDefaults standardUserDefaults] objectForKey:kAppLanguage];
+        if (!_currentLanguage) {
+            _currentLanguage = kAppLanguage_CH;
+        }
         _bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:_currentLanguage ofType:@"lproj"]];
     }
     return self;
