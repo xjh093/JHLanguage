@@ -34,13 +34,18 @@
 
 - (void)jh_setCurrentLanguage:(JHLanguageType)language{
     if (language == JHLanguageType_zh_Hans) {
-        _currentLanguage = @"zh_Hans";
+        _currentLanguage = kAppLanguage_CH;
     }else if (language == JHLanguageType_en){
-        _currentLanguage = @"en";
+        _currentLanguage = kAppLanguage_EN;
     }else{
-        _currentLanguage = @"zh_Hans";
+        _currentLanguage = kAppLanguage_CH;
     }
+    
     _bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:_currentLanguage ofType:@"lproj"]];
+    
+    // 
+    [[NSUserDefaults standardUserDefaults] setObject:_currentLanguage forKey:kAppLanguage];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (NSString *)jh_stringForKey:(NSString *)key table:(NSString *)table{
