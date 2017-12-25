@@ -12,6 +12,9 @@
 #define kAppLanguage_CH         @"zh_Hans"
 #define kAppLanguage_EN         @"en"
 
+#define kJHCurrentLanguage \
+[[JHLanguage language] jh_currentLanguage]
+
 #define kJHSetLanguage(lan) \
 [[JHLanguage language] jh_setCurrentLanguage:lan]
 
@@ -26,6 +29,8 @@ typedef NS_ENUM(NSUInteger, JHLanguageType) {
 @interface JHLanguage : NSObject
 
 + (instancetype)language;
+
+- (NSString *)jh_currentLanguage;
 
 - (void)jh_setCurrentLanguage:(JHLanguageType)language;
 
