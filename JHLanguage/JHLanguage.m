@@ -35,6 +35,10 @@
     return self;
 }
 
+- (NSString *)jh_currentLanguage{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kAppLanguage];
+}
+
 - (void)jh_setCurrentLanguage:(JHLanguageType)language{
     if (language == JHLanguageType_zh_Hans) {
         _currentLanguage = kAppLanguage_CH;
