@@ -57,7 +57,11 @@
 }
 
 - (NSString *)jh_currentLanguage{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kAppLanguage];
+    NSString *language = [[NSUserDefaults standardUserDefaults] objectForKey:kAppLanguage];
+    if (language == nil) {
+        language = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"][0];
+    }
+    return language;
 }
 
 - (void)jh_setCurrentLanguage:(JHLanguageType)language{
