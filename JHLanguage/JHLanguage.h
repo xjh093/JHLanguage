@@ -30,7 +30,7 @@
 #import <Foundation/Foundation.h>
 
 #define kAppLanguage            @"一丨丿丶乙"
-#define kAppLanguage_CH         @"zh_Hans"
+#define kAppLanguage_CH         @"zh-Hans"
 #define kAppLanguage_EN         @"en"
 
 #define kJHCurrentLanguage \
