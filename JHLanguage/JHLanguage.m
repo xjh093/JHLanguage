@@ -49,7 +49,7 @@
     if (self = [super init]) {
         _currentLanguage = [[NSUserDefaults standardUserDefaults] objectForKey:kAppLanguage];
         if (!_currentLanguage) {
-            _currentLanguage = kAppLanguage_CH;
+            _currentLanguage = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"][0]; // system default.
         }
         _bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:_currentLanguage ofType:@"lproj"]];
     }
